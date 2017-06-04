@@ -3,6 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 
 import { Item } from "./item";
 import { ItemService } from "./item.service";
+import { Observable } from "rxjs/Observable";
 
 @Component({
     selector: "ns-details",
@@ -10,7 +11,7 @@ import { ItemService } from "./item.service";
     templateUrl: "./item-detail.component.html",
 })
 export class ItemDetailComponent implements OnInit {
-    item: Item;
+    item$: Observable<Item>;
 
     constructor(
         private itemService: ItemService,
@@ -19,6 +20,6 @@ export class ItemDetailComponent implements OnInit {
 
     ngOnInit(): void {
         const id = +this.route.snapshot.params["id"];
-        this.item = this.itemService.getItem(id);
+        this.item$ = this.itemService.getItem(id);
     }
 }
