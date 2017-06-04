@@ -13,7 +13,7 @@ export class ItemService {
 
     getItems(): Observable<Item[]> {
         return this.http
-            .get(`http://swapi.co/api/people/`)
+            .get(`https://swapi.co/api/people/`)
             .map(response => response.json())
             .map(data => {
                 return data.results.map((p, index) => ({
@@ -26,7 +26,7 @@ export class ItemService {
 
     getItem(id: number): Observable<Item> {
         return this.http
-            .get(`http://swapi.co/api/people/${id}/`)
+            .get(`https://swapi.co/api/people/${id}/`)
             .map(response => response.json())
             .map(p => ({
                 id: id,
