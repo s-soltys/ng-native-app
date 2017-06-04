@@ -1,5 +1,10 @@
+hooks/
 node_modules/
-npm-debug.log
+platforms/
+lib/
+tags/
 
-*.js.map
 app/**/*.js
+app/**/*.map
+
+npm-debug.log
